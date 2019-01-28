@@ -32,4 +32,12 @@ public class People {
 		this.name = name;
 		this.age = age;
 	}
+
+	@Override
+	public String toString() {
+		return "People{" +
+				"name='" + name + '\'' +
+				", age=" + age +
+				'}';
+	}
 }
