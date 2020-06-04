@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     println(user.name + " " + user.age)
 
     var student = Student("xiaoming", 10)
-    var teacher = Teacher("Wang")
+    var teacher = Teacher("Wang",40)
     teacher.age = 36
     teacher.Child()
     println(teacher)
@@ -60,15 +60,21 @@ data class Student(var name: String = "Tom") {
 }
 
 //如果一个类允许被继承，则必须设置为open
+// 注意get和set的写法，必须使用field
 open class Teacher {
     var name: String? = null
-//    get()=name //注意必须写在对应的变量名下面，不过好像没什么用处
-    var age: Int? = null
-//    get() = age
+        get()=field?.toUpperCase() //注意必须写在对应的变量名下面，不过好像没什么用处
+    var age: Int
+        get() = field + 20
+        set(value){
+            field = value - 5
+        }
 
-    constructor(name: String){
-        this.name = name
-    }
+
+
+//    constructor(name: String){
+//        this.name = name
+//    }
 
     constructor(name: String, age: Int) {
         this.name = name
@@ -92,9 +98,6 @@ open class Teacher {
 }
 
 class YoungTeacher : Teacher, Play {
-    constructor(name: String) : super(name) {
-
-    }
 
     constructor(name: String, age: Int) : super(name, age) {
 
