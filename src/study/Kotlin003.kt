@@ -44,7 +44,7 @@ fun main(args: Array<String>) {
                         num.i++
                         num.flag = false
                         sleep(300L)
-                        obj.notify()
+                        obj.notifyAll()
                     } else {
                         obj.wait()
                     }
@@ -61,7 +61,7 @@ fun main(args: Array<String>) {
                         num.i++
                         num.flag = true
                         sleep(300L)
-                        obj.notify()
+                        obj.notifyAll()
                     } else {
                         obj.wait()
                     }
@@ -78,4 +78,5 @@ class Num {
     var i = 1
     var flag = false
 }
+
 
